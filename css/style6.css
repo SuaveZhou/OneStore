@@ -5,17 +5,19 @@
 }
 .style6 .top{
     padding: 20px;
-    padding-bottom: 0;
     margin: 0;
     justify-content: flex-start;
+    background: #e0e5ec;
+    box-shadow: 4px 4px 8px #a3b1c6, -4px -4px 8px #ffffff;
+    border-radius: 20px;
 }
 .style6 .top .logo{
     width: 66px;
     height: 66px;
     margin-right: 10px;
-    border: 1px solid #e4e4e4;
     border-radius: 12px;
     overflow: hidden;
+    box-shadow: 4px 4px 8px #a3b1c6, -4px -4px 8px #ffffff;
 }
 .style6 .top .desc h1{
     font-size: 18px;
@@ -43,9 +45,13 @@
     font-size: 12px;
     text-align: center;
     z-index: 99;
+    background: #e0e5ec;
+    box-shadow: 4px 4px 8px #a3b1c6, -4px -4px 8px #ffffff;
+    border-radius: 20px;
+    padding: 10px;
 }
 .style6 .slogan span{
-    background-color: #fff;
+    background-color: #e0e5ec;
     display: inline-block;
     padding: 0 8px;
 }
@@ -63,6 +69,10 @@
     overflow: hidden;
     overflow-x: auto;
     margin: 0;
+    padding: 20px;
+    background: #e0e5ec;
+    box-shadow: 4px 4px 8px #a3b1c6, -4px -4px 8px #ffffff;
+    border-radius: 20px;
 }
 .style6 .covers img{
     margin-left: 10px;

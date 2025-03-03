@@ -53,9 +53,14 @@ html {
 }
 
 body {
+    background-color: #e0e5ec;
+    color: #333;
     padding-bottom: constant(safe-area-inset-bottom);
     padding-bottom: env(safe-area-inset-bottom);
-    background-color: #f7f8fa;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 button {
@@ -91,8 +96,13 @@ li {
 }
 
 .app {
+    background: #e0e5ec;
+    box-shadow: 9px 9px 16px #a3b1c6, -9px -9px 16px #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    max-width: 800px;
+    width: 100%;
     position: relative;
-    max-width: 640px;
     min-width: 320px;
     margin: 0 auto;
     height: 100%;
@@ -143,6 +153,13 @@ li {
     outline: none;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     -webkit-tap-highlight-color: transparent;
+    background: #6DA71D;
+    box-shadow: 4px 4px 8px #a3b1c6, -4px -4px 8px #ffffff;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    box-shadow: inset 4px 4px 8px #a3b1c6, inset -4px -4px 8px #ffffff;
 }
 
 .btn svg {
@@ -258,4 +275,14 @@ li {
 .theme3 .cover::after {
     content: '';
     background-color: var(--theme-color);
+}
+
+.covers img {
+    box-shadow: 4px 4px 8px #a3b1c6, -4px -4px 8px #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.covers img:hover {
+    transform: scale(1.05);
+    box-shadow: inset 4px 4px 8px #a3b1c6, inset -4px -4px 8px #ffffff;
 }
