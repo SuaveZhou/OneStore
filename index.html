@@ -142,21 +142,83 @@
                 font-size: 0.9em;
             }
         }
+
+        .navbar {
+            width: 100%;
+            background-color: #4a8c1a;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+
+        .navbar a {
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-family: 'DingTalk', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar a:hover {
+            background-color: #6DA71D;
+            border-radius: 12px;
+            transition: background-color 0.3s, border-radius 0.3s;
+        }
+
+        .navbar a.active {
+            background-color: #6DA71D;
+            border-radius: 12px;
+            transition: background-color 0.3s;
+        }
+
+        .content {
+            margin-top: 500px; /* 确保内容不被导航栏遮挡 */
+            padding-bottom: 50px; /* 增加底部空余空间 */
+        }
+
+        #history {
+            margin-bottom: 40px; /* 增加底部间距 */
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="title">OneStore</div>
-        <div class="subtitle">一款免费观看电视剧、电影、动漫的工具…</div>
-        <div class="screenshots">
-            <img src="src/assets/1.png" alt="Screenshot 1">
-            <img src="src/assets/2.png" alt="Screenshot 2">
-            <img src="src/assets/3.png" alt="Screenshot 3">
-            <img src="src/assets/4.png" alt="Screenshot 4">
+    <div class="navbar">
+        <a href="#home" class="active">首页</a>
+        <a href="#version-info">版本介绍</a>
+        <a href="#history">历史版本</a>
+    </div>
+    <div class="content">
+        <div class="container">
+            <div class="title">OneStore</div>
+            <div class="subtitle">一款免费观看电视剧、电影、动漫的工具…</div>
+            <div class="screenshots">
+                <img src="src/assets/1.png" alt="Screenshot 1">
+                <img src="src/assets/2.png" alt="Screenshot 2">
+                <img src="src/assets/3.png" alt="Screenshot 3">
+                <img src="src/assets/4.png" alt="Screenshot 4">
+            </div>
+            <div id="version-info" class="section">
+                <h2>版本介绍</h2>
+                <p>OneStore v3.1.5更新:</p>
+                <p>官网上线（https://onestore.yuanhan.xyz）</p>
+                <p>音乐功能恢复运行</p>
+                <p>3.优化了一些问题～</p>
+            </div>
+            <div id="history" class="section">
+                <h2>历史版本</h2>
+                <P>OneStore v3.1.4更新:</P>
+                <P>1.接入DeepSeek-V3大模型</P>
+                <P>2.优化了一些问题～</P>
+            </div>
+            <a href="https://onestore.yuanhan.xyz/release/OneStore.apk" class="download-button">
+                下载APP
+            </a>
         </div>
-        <a href="https://onestore.yuanhan.xyz/release/OneStore.apk" class="download-button">
-            下载APP
-        </a>
     </div>
 
     <script>
@@ -175,6 +237,27 @@
         }
 
         setInterval(createSakura, 100);
+
+        // 获取所有导航链接
+        const navLinks = document.querySelectorAll('.navbar a');
+
+        // 为每个链接添加点击事件监听器
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // 移除所有链接的 active 类
+                navLinks.forEach(link => link.classList.remove('active'));
+                // 为当前点击的链接添加 active 类
+                this.classList.add('active');
+
+                // 如果点击的是首页链接，滚动到页面顶部
+                if (this.getAttribute('href') === '#home') {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html> 
