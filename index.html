@@ -49,12 +49,49 @@
         .screenshots img:hover {
             transform: rotate(0deg) scale(1.05);
         }
+
+        nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #6a0dad;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .download-btn:hover {
+            background-color: #ddd;
+        }
     </style>
 </head>
 <body>
+    <nav>
+        <a href="#features">功能</a>
+        <a href="#download">下载</a>
+        <a href="#contact">联系我们</a>
+    </nav>
     <div class="container">
         <div class="title">尔途APP</div>
         <div class="subtitle">“时态式”旅行APP 贴心关照您的旅行全过程</div>
+        <a href="#" class="download-btn">下载APP</a>
         <div class="screenshots">
             <img src="src/assets/1.png" alt="Screenshot 1">
             <img src="src/assets/2.png" alt="Screenshot 2">
