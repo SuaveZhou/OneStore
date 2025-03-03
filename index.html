@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>尔途APP</title>
     <style>
+        @font-face {
+            font-family: 'DingTalk';
+            src: url('src/font/dingtalk.ttf') format('truetype');
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #6a0dad;
+            font-family: 'DingTalk', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #6DA71D;
             color: #fff;
             margin: 0;
             padding: 0;
@@ -43,6 +48,7 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
+            margin-bottom: 40px;
         }
 
         .screenshots img {
@@ -57,36 +63,76 @@
         }
 
         .download-button {
-            background-color: #6a0dad;
+            background-color: #6DA71D;
             border: none;
             border-radius: 12px;
-            box-shadow: 5px 5px 10px #5a0c9d, -5px -5px 10px #7a1dbd;
+            box-shadow: 5px 5px 10px #5a8c1a, -5px -5px 10px #7dbb20;
             color: #fff;
             padding: 15px 30px;
             font-size: 1.2em;
             cursor: pointer;
             transition: box-shadow 0.3s, transform 0.3s;
-            margin-top: 30px;
+            margin-top: 40px;
+            font-family: 'DingTalk', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-decoration: none;
         }
 
         .download-button:hover {
-            box-shadow: 2px 2px 5px #5a0c9d, -2px -2px 5px #7a1dbd;
+            box-shadow: 2px 2px 5px #5a8c1a, -2px -2px 5px #7dbb20;
             transform: translateY(-2px);
+        }
+
+        .sakura {
+            position: fixed;
+            top: -10px;
+            width: 30px;
+            height: 30px;
+            background-image: url('src/assets/sakura.png');
+            background-size: cover;
+            opacity: 0.8;
+            pointer-events: none;
+            animation: fall linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="title">尔途APP</div>
-        <div class="subtitle">“时态式”旅行APP 贴心关照您的旅行全过程</div>
-        <div class="design">UI/UX DESIGN</div>
+        <div class="title">OneStore</div>
+        <div class="subtitle">一款免费观看电视剧、电影、动漫的工具…</div>
         <div class="screenshots">
             <img src="src/assets/1.png" alt="Screenshot 1">
             <img src="src/assets/2.png" alt="Screenshot 2">
             <img src="src/assets/3.png" alt="Screenshot 3">
             <img src="src/assets/4.png" alt="Screenshot 4">
         </div>
-        <button class="download-button">下载APP</button>
+        <a href="https://onestore.yuanhan.xyz/release/OneStore.apk" class="download-button">
+            下载APP
+        </a>
     </div>
+
+    <script>
+        function createSakura() {
+            const sakura = document.createElement('div');
+            sakura.classList.add('sakura');
+            sakura.style.left = Math.random() * 100 + 'vw';
+            sakura.style.top = Math.random() * -50 + 'vh';
+            sakura.style.animationDuration = Math.random() * 3 + 2 + 's';
+            sakura.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(sakura);
+
+            setTimeout(() => {
+                sakura.remove();
+            }, 5000);
+        }
+
+        setInterval(createSakura, 100);
+    </script>
 </body>
 </html> 
