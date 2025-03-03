@@ -55,6 +55,24 @@
         .screenshots img:hover {
             transform: rotate(0deg) scale(1.05);
         }
+
+        .download-button {
+            background-color: #6a0dad;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 5px 5px 10px #5a0c9d, -5px -5px 10px #7a1dbd;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: box-shadow 0.3s, transform 0.3s;
+            margin-top: 30px;
+        }
+
+        .download-button:hover {
+            box-shadow: 2px 2px 5px #5a0c9d, -2px -2px 5px #7a1dbd;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
@@ -68,6 +86,7 @@
             <img src="src/assets/3.png" alt="Screenshot 3">
             <img src="src/assets/4.png" alt="Screenshot 4">
         </div>
+        <button class="download-button">下载APP</button>
     </div>
 </body>
 </html> 
