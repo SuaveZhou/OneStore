@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>应用下载页面</title>
+    <title>OneStore下载页面</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -84,23 +84,26 @@
     <div class="app-container">
         <header class="app-header">
             <div class="logo">
-                <img src="assets/logo.png" alt="App Logo">
+                <img src="src/assets/logo.png" alt="App Logo">
             </div>
             <div class="app-info">
-                <h1>应用名称</h1>
-                <p>版本：v1.0.0</p>
+                <h1>OneStore</h1>
+                <p>版本：v3.1.5</p>
                 <p>描述：这是一个非常棒的应用，提供丰富的功能和优质的用户体验。</p>
             </div>
         </header>
         <main class="app-main">
             <a href="#" class="download-btn" id="downloadBtn">立即下载</a>
             <div class="slogan">
-                <span>已累计服务数万用户，快来体验吧！</span>
+                <span>已累计服务数1万+用户，快来体验吧！</span>
             </div>
             <div class="app-screenshots">
-                <img src="assets/1.png" alt="Screenshot 1">
-                <img src="assets/2.png" alt="Screenshot 2">
-                <img src="assets/3.png" alt="Screenshot 3">
+                <img src="src/assets/1.png" alt="Screenshot 1">
+                <img src="src/assets/2.png" alt="Screenshot 2">
+                <img src="src/assets/3.png" alt="Screenshot 3">
+                <img src="src/assets/4.png" alt="Screenshot 4">
+                <img src="src/assets/5.png" alt="Screenshot 5">
+                <img src="src/assets/6.png" alt="Screenshot 6">
             </div>
         </main>
     </div>
@@ -112,7 +115,7 @@
             const isAndroid = userAgent.indexOf('android') > -1;
             const isIOS = /iphone|ipad|ipod|ios/.test(userAgent);
 
-            downloadBtn.href = isAndroid ? 'http://example.com/android-download' : 'http://example.com/ios-download';
+            downloadBtn.href = isAndroid ? 'https://onestore.yuanhan.xyz/release/OneStore.apk' : 'https://onestore.yuanhan.xyz/release/OneStore.apk';
         });
     </script>
 </body>
