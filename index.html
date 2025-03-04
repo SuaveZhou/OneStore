@@ -114,8 +114,16 @@
                 font-size: 1.2em;
             }
 
+            .screenshots {
+                display: flex;
+                justify-content: flex-start;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+            }
+
             .screenshots img {
-                width: 150px;
+                scroll-snap-align: start;
+                flex: 0 0 auto;
             }
 
             .download-button {
