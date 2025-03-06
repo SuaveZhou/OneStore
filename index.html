@@ -239,30 +239,28 @@
         }
 
         @media (max-width: 480px) {
-            .title {
-                font-size: 2em;
-            }
-
-            .subtitle {
-                font-size: 1em;
-            }
-
+            /* 在现有媒体查询内添加 */
             .screenshots img {
-                width: 100px;
+                transform: none;  /* 移动端移除旋转效果 */
+                width: 85%;
+                margin: 10px auto;  /* 居中显示 */
             }
-
-            .download-button {
-                padding: 10px 20px;  /* 调整小屏幕按钮内边距 */
-                font-size: 1em;
-                width: 80%;  /* 在小屏幕上占据更多宽度 */
-                max-width: 200px;  /* 限制最大宽度 */
-                margin-top: 25px;  /* 减小顶部间距 */
+            
+            .section {
+                padding: 15px !important;
+                margin: 15px 0 !important;
             }
         }
 
         .navbar {
             width: 100%;
-            background-color: #4a8c1a;
+            background: rgba(74, 140, 26, 0.8);  /* 调整透明度为0.8 */
+            backdrop-filter: blur(12px) saturate(180%);  /* 增强模糊效果 */
+            -webkit-backdrop-filter: blur(12px) saturate(180%);  /* Safari兼容 */
+            /* 移除冲突的background-color属性 */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);  /* 调整阴影 */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);  /* 添加底部边框 */
+            /* 保持其他原有属性不变 */
             overflow: hidden;
             position: fixed;
             top: 0;
@@ -273,18 +271,26 @@
         }
 
         .navbar a {
-            color: white;
+            color: rgba(255, 255, 255, 0.9);  /* 添加透明度 */
             text-align: center;
             padding: 14px 20px;
             text-decoration: none;
             font-size: 1.2em;
             font-family: 'DingTalk', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: all 0.3s ease;  /* 统一过渡效果 */
         }
 
         .navbar a:hover {
+            background-color: rgba(109, 167, 29, 0.7);  /* 添加透明度 */
+            border-radius: 12px;
+        }
+
+        .navbar a.active {
             background-color: #6DA71D;
             border-radius: 12px;
-            transition: background-color 0.3s, border-radius 0.3s;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            /* 移除重复的.active样式 */
         }
 
         .navbar a.active {
@@ -295,11 +301,15 @@
 
         .content {
             margin-top: 60px;
-            padding-bottom: 50px;
+            padding-bottom: 80px;  /* 增加底部留白 */
         }
 
         #history {
             margin-bottom: 40px;
+        }
+
+        #version-info {
+            margin-bottom: 60px; /* 增加底部间距 */
         }
     </style>
 </head>
@@ -329,9 +339,9 @@
             </div>
             <div id="history" class="section">
                 <h2>历史版本</h2>
-                <P>OneStore v3.1.4更新:</P>
-                <P>1.接入DeepSeek-V3大模型</P>
-                <P>2.优化了一些问题～</P>
+                <p>OneStore v3.1.4更新:</p>  <!-- 修正大写P为小写 -->
+                <p>1.接入DeepSeek-V3大模型</p>
+                <p>2.优化了一些问题～</p>
             </div>
             <a href="https://onestore.yuanhan.xyz/release/OneStore.apk" class="download-button">
                 下载APP
@@ -352,8 +362,8 @@
     <style>
         /* GitHub链接样式 */
         .github-link {
-            margin-top: 30px;
-            margin-bottom: 20px;
+            margin: 40px 0;  /* 增加上下间距 */
+            text-align: center;  /* 居中显示 */
         }
         
         .github-link a {
@@ -363,28 +373,27 @@
             text-decoration: none;
             font-size: 1em;
             transition: all 0.3s;
-            padding: 8px 15px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 25px;  /* 加大内边距 */
+            border-radius: 30px;  /* 更圆润的边框 */
+            background: rgba(255, 255, 255, 0.15);  /* 提高背景可见度 */
+            border: 1px solid rgba(255,255,255,0.3);  /* 添加边框 */
         }
         
         .github-link a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);  /* 加强悬停效果 */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);  /* 添加阴影 */
         }
         
         .github-icon {
-            margin-right: 8px;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
         }
         
         @media (max-width: 480px) {
-            .github-link {
-                margin-top: 20px;
-            }
-            
             .github-link a {
-                font-size: 0.9em;
-                padding: 6px 12px;
+                padding: 10px 20px;
             }
         }
     </style>
@@ -441,35 +450,51 @@
             });
         });
 
-        // 强化滚动检测逻辑
+        // 改进滚动检测逻辑
         function updateActiveNav() {
-            const sections = document.querySelectorAll('[id].section, #home');
             const navLinks = document.querySelectorAll('.navbar a');
-            let foundActive = false;
-        
+            
+            // 获取所有section和页面信息
+            const versionSection = document.getElementById('version-info');
+            const historySection = document.getElementById('history');
+            const scrollHeight = document.documentElement.scrollHeight;
+            const scrollPosition = window.scrollY + window.innerHeight;
+            
+            // 清除所有激活状态
             navLinks.forEach(link => link.classList.remove('active'));
             
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                // 优化可视区域判断
-                const isInView = rect.top <= window.innerHeight * 0.4 && 
-                               rect.bottom >= window.innerHeight * 0.2;
-                
-                if (isInView) {
-                    const targetId = section.id;
-                    navLinks.forEach(link => {
-                        if (link.getAttribute('href') === `#${targetId}`) {
-                            link.classList.add('active');
-                            foundActive = true;
-                        }
-                    });
-                }
-            });
-        
-            if (!foundActive && window.scrollY < 100) {
+            // 检测是否滚动到底部
+            if (Math.abs(scrollHeight - scrollPosition) < 10) {
+                document.querySelector('.navbar a[href="#history"]').classList.add('active');
+                return;
+            }
+            
+            // 获取各section位置
+            const versionRect = versionSection.getBoundingClientRect();
+            const historyRect = historySection.getBoundingClientRect();
+            
+            // 判断当前位置并设置激活状态
+            if (historyRect.top <= window.innerHeight * 0.3) {
+                document.querySelector('.navbar a[href="#history"]').classList.add('active');
+            } else if (versionRect.top <= window.innerHeight * 0.3) {
+                document.querySelector('.navbar a[href="#version-info"]').classList.add('active');
+            } else {
                 document.querySelector('.navbar a[href="#home"]').classList.add('active');
             }
         }
+
+        // 优化滚动监听（使用防抖）
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(updateActiveNav, 50);
+        });
+        
+        // 页面加载完成后初始化导航状态
+        document.addEventListener('DOMContentLoaded', updateActiveNav);
+        
+        // 窗口大小改变时重新计算
+        window.addEventListener('resize', updateActiveNav);
     </script>
 
     <script>
