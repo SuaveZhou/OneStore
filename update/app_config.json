@@ -1,5 +1,5 @@
 {
     "app_edition": "3.1.6",
-    "app_new": "新增深色模式，优化性能\n• 支持夜间主题\n• 提升加载速度30%\n• 修复已知问题",
+    "app_new": "官网上线（https://onestore.yuanhan.xyz）\n• 音乐功能恢复运行\n• 接入DeepSeek-V3大模型\n• 优化了一些问题～\n• 增加检查更新功能",
     "app_download": "https://onestore.yuanhan.xyz/release/OneStore.apk"
 }
