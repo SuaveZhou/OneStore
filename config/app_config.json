@@ -2,6 +2,6 @@
     "app_edition": "3.1.6",
     "app_new": "OneStore v3.1.6版本发布：\n• 官网上线（https://onestore.yuanhan.xyz）\n• 音乐功能恢复运行\n• 接入DeepSeek-V3大模型\n• 优化了一些问题～\n• 增加检查更新功能",
     "app_download": "https://onestore.yuanhan.xyz/release/OneStore.apk",
-    "app_theme": "true",
-    "app_theme_black": "true"
+    "app_theme": "false",
+    "app_theme_black": "false"
 }
