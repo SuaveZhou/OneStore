@@ -1,6 +1,6 @@
 {
-    "app_edition": "3.1.8",
-    "app_new": "OneStore v3.1.8版本发布：\n• 优化页面布局，更简洁\n• 新增功能模块，未来更多功能将增加\n• 优化了一些问题～",
+    "app_edition": "3.1.9",
+    "app_new": "OneStore v3.1.9版本发布：\n• 新的UI设计 更青春\n• 新增注册、登陆功能\n• 新增个人中心、忘记密码等功能\n• 优化了一些问题～",
     "app_download": "https://onestore.yuanhan.xyz/release/OneStore.apk",
     "app_theme": "false",
     "app_theme_black": "false",
